@@ -1,0 +1,8 @@
+gitvars() {
+  export author="$(git log --format='%an <%ae>' HEAD -n1)"
+  export hash="$(git log --format='%H' HEAD -n1)"
+  echo "\$author=\"$author\""
+  echo "\$hash=\"$hash\""
+}
+
+sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
