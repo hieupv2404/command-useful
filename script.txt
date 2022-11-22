@@ -6,3 +6,6 @@ gitvars() {
 }
 
 sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+
+docker images | grep hieupv/chaordadev | tr -s ' ' | cut -d ' ' -f 2 | xargs -I {} docker rmi hieupv/chaordadev:{}
+
